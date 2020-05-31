@@ -66,7 +66,7 @@ public class RestAPISteps {
     String actualPassword = listOfUsers.get(0).getLogin().getPassword();
     String pattern = generatePattern(passwordConstrains);
     Assertions.assertThat(actualPassword.matches(pattern))
-        .as("Password " + actualPassword + " doesn't match pattern").isTrue();
+        .as("Password " + actualPassword + " doesn't match pattern " + pattern).isTrue();
   }
 
   public void makeAdditionalChecks() {

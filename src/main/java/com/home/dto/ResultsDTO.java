@@ -17,6 +17,7 @@ public class ResultsDTO {
   @NoArgsConstructor
   @AllArgsConstructor
   public static class User {
+
     private String gender;
     private Name name;
     private Location location;
@@ -34,6 +35,7 @@ public class ResultsDTO {
   @Data
   @NoArgsConstructor
   public static class Info {
+
     private String seed;
     private int results;
     private int page;
@@ -43,6 +45,7 @@ public class ResultsDTO {
   @Data
   @NoArgsConstructor
   public static class Name {
+
     private String title;
     private String first;
     private String last;
@@ -51,6 +54,7 @@ public class ResultsDTO {
   @Data
   @NoArgsConstructor
   public static class Location {
+
     private Street street;
     private String city;
     private String state;
@@ -64,6 +68,7 @@ public class ResultsDTO {
   @NoArgsConstructor
   @AllArgsConstructor
   public static class Street {
+
     private int number;
     private String name;
   }
@@ -71,6 +76,7 @@ public class ResultsDTO {
   @Data
   @NoArgsConstructor
   public static class Coordinates {
+
     private String latitude;
     private String longitude;
   }
@@ -78,6 +84,7 @@ public class ResultsDTO {
   @Data
   @NoArgsConstructor
   public static class Timezone {
+
     private String offset;
     private String description;
   }
@@ -85,6 +92,7 @@ public class ResultsDTO {
   @Data
   @NoArgsConstructor
   public static class Login {
+
     private String uuid;
     private String username;
     private String password;
@@ -97,6 +105,7 @@ public class ResultsDTO {
   @Data
   @NoArgsConstructor
   public static class DOB {
+
     private String date;
     private int age;
   }
@@ -105,6 +114,7 @@ public class ResultsDTO {
   @Data
   @NoArgsConstructor
   public static class Registered {
+
     private String date;
     private int age;
   }
@@ -112,6 +122,7 @@ public class ResultsDTO {
   @Data
   @NoArgsConstructor
   public static class Id {
+
     private String name;
     private String value;
   }
@@ -119,6 +130,7 @@ public class ResultsDTO {
   @Data
   @NoArgsConstructor
   public static class Picture {
+
     private String large;
     private String medium;
     private String thumbnail;
