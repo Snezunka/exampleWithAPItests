@@ -7,7 +7,7 @@ import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
 
-public class UserTests {
+public class UserTest {
 
   private UsersService usersService = new UsersService();
   private RestAPISteps restAPISteps = new RestAPISteps();

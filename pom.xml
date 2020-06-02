@@ -7,15 +7,40 @@
   <groupId>home.tanya</groupId>
   <artifactId>exampleWithAPItests</artifactId>
   <version>1.0-SNAPSHOT</version>
+  <repositories>
+    <repository>
+      <snapshots>
+        <enabled>false</enabled>
+      </snapshots>
+      <id>central</id>
+      <name>Central Repository</name>
+      <url>https://repo.maven.apache.org/maven2</url>
+    </repository>
+  </repositories>
+  <pluginRepositories>
+    <pluginRepository>
+      <releases>
+        <updatePolicy>never</updatePolicy>
+      </releases>
+      <snapshots>
+        <enabled>false</enabled>
+      </snapshots>
+      <id>central</id>
+      <name>Central Repository</name>
+      <url>https://repo.maven.apache.org/maven2</url>
+    </pluginRepository>
+  </pluginRepositories>
 
   <properties>
+    <aspectj.version>1.8.10</aspectj.version>
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     <rest-assured.version>4.3.0</rest-assured.version>
     <lombok.version>1.18.12</lombok.version>
     <lombok.version>1.18.12</lombok.version>
     <testng-version.version>6.14.3</testng-version.version>
     <assertj.version>3.13.2</assertj.version>
     <jackson.version>2.6.3</jackson.version>
-
+    <allure.version>2.12.0</allure.version>
   </properties>
 
   <build>
@@ -29,7 +54,40 @@
           <target>1.8</target>
         </configuration>
       </plugin>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-surefire-plugin</artifactId>
+        <version>2.20</version>
+        <configuration>
+          <argLine>
+            -javaagent:"${settings.localRepository}/org/aspectj/aspectjweaver/${aspectj.version}/aspectjweaver-${aspectj.version}.jar"
+          </argLine>
+          <systemProperties>
+            <property>
+              <name>allure.results.directory</name>
+              <value>${project.build.directory}/allure-results</value>
+            </property>
+            <property>
+              <name>allure.report.directory</name>
+              <value>${project.build.directory}/allure-report</value>
+            </property>
+          </systemProperties>
+        </configuration>
+        <dependencies>
+          <dependency>
+            <groupId>org.aspectj</groupId>
+            <artifactId>aspectjweaver</artifactId>
+            <version>${aspectj.version}</version>
+          </dependency>
+        </dependencies>
+      </plugin>
+      <plugin>
+        <groupId>io.qameta.allure</groupId>
+        <artifactId>allure-maven</artifactId>
+        <version>2.10.0</version>
+      </plugin>
     </plugins>
+
   </build>
 
   <dependencies>
@@ -48,6 +106,11 @@
       <artifactId>testng</artifactId>
       <version>${testng-version.version}</version>
       <scope>test</scope>
+    </dependency>
+    <dependency>
+      <groupId>io.qameta.allure</groupId>
+      <artifactId>allure-testng</artifactId>
+      <version>${allure.version}</version>
     </dependency>
     <dependency>
       <artifactId>assertj-core</artifactId>
