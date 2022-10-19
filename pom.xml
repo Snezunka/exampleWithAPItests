@@ -39,7 +39,7 @@
     <lombok.version>1.18.12</lombok.version>
     <testng-version.version>6.14.3</testng-version.version>
     <assertj.version>3.13.2</assertj.version>
-    <jackson.version>2.6.3</jackson.version>
+    <jackson.version>2.13.4.1</jackson.version>
     <allure.version>2.12.0</allure.version>
   </properties>
 
